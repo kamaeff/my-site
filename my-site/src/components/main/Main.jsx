@@ -1,16 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import fetchMessages from './components/FetchTg'
-import { searchHub, tg, tg_bot } from './components/imgImports'
+import { tg } from './components/imgImports'
 import './main.css'
 
 const Main = () => {
 	const [messages, setMessages] = useState([])
+	const [data, setData] = useState([])
+
+	const fetchData = async () => {
+		const response = await fetch('api/user_stat')
+		const response_1 = await response.json()
+		setData(response_1)
+	}
 
 	useEffect(() => {
 		const intervalId = setInterval(
 			() => fetchMessages(setMessages),
 			3600 * 1000
 		)
+
+		fetchData()
 
 		return () => {
 			fetchMessages(setMessages).then(() => clearInterval(intervalId))
@@ -74,7 +83,11 @@ const Main = () => {
 					</div>
 				</div>
 			</div>
-			<div className='main__projects'>
+			<div className='main__stock'>
+				<h3 className='main__stock--title'>Статистика бота</h3>
+				<p className='main__stock--text'>{data.message}</p>
+			</div>
+			{/* <div className='main__projects'>
 				<div className='main__pojects_item'>
 					<img
 						src={tg_bot}
@@ -109,7 +122,7 @@ const Main = () => {
 						выводит информацию по предпочтениям пользователя
 					</p>
 				</div>
-			</div>
+			</div> */}
 		</div>
 	)
 }

@@ -31,3 +31,7 @@ const connCreate = async () => {
 app.get('/api', async (req, res) => {
 	res.json({ message: await connCreate() })
 })
+
+app.get('/api/user_stat', async (req, res) => {
+	res.json({ message: 'Stats works' })
+})
