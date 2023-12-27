@@ -1,0 +1,131 @@
+.main {
+	display: grid;
+	justify-content: center;
+	gap: 50px;
+	margin-top: 170px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1200px;
+	color: #000;
+	animation: 7s anim-main ease;
+}
+
+.main__container {
+	display: flex;
+	justify-content: center;
+
+	gap: 40px;
+}
+
+.main__text {
+	max-width: 400px;
+	text-align: justify;
+	font-size: 15px;
+	line-height: 18px;
+
+	font-family: var(--roboto);
+}
+
+.main__tg {
+	width: 400px;
+	height: 400px;
+	max-width: 100%;
+	max-height: 100%;
+
+	background: url('../../assets/icons/telegram.png');
+}
+
+.main__text--italic {
+	font-style: italic;
+	font-weight: 300;
+	font-size: 15px;
+
+	color: #6c6c6c;
+}
+
+.main__tg--title {
+	font-family: var(--roboto);
+	font-weight: 600;
+	font-size: 22px;
+}
+
+.main__tg--link {
+	font-style: italic;
+	font-weight: 600;
+}
+
+.main__tg_chat {
+	overflow: auto;
+	/* display: grid; */
+	gap: 20px;
+}
+
+.main__tg-title_chat {
+	padding: 3px;
+	font-family: var(--roboto);
+	font-weight: bold;
+	font-style: italic;
+
+	font-size: 18px;
+}
+
+.main__tg-text_chat {
+	padding: 2px 13px;
+
+	font-family: var(--roboto);
+	color: #000;
+	background: rgb(184, 230, 255, 0.9);
+
+	border: 1px solid rgb(184, 230, 255);
+	border-top-left-radius: 15px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 5px;
+}
+
+@media screen and (max-width: 992px) {
+	.main {
+		display: grid;
+		justify-content: center;
+		align-items: center;
+
+		margin-top: 20px;
+		margin-left: 0;
+		gap: 10px;
+	}
+
+	.main__container {
+		display: grid;
+		gap: 20px;
+	}
+
+	.main__container_links {
+		display: flex;
+		flex-direction: initial;
+		justify-content: center;
+		align-items: center;
+
+		gap: 5px;
+	}
+
+	.main__carusel--title {
+		font-size: 20px;
+	}
+
+	.main__carusel--subtitle {
+		font-size: 12px;
+	}
+
+	.main__tg {
+		margin-top: 20px;
+	}
+
+	.main__text,
+	.main__tg {
+		display: grid;
+		justify-content: center;
+
+		max-width: 400px;
+		animation: 6s anim-adaptiv-main ease;
+	}
+}

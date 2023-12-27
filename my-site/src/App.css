@@ -1,0 +1,156 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	scroll-behavior: smooth;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	background: var(--color-bg);
+	color: #000;
+}
+
+a {
+	color: unset;
+	text-decoration: none;
+}
+
+.Typewriter__cursor-hide {
+	visibility: hidden !important;
+}
+
+.gradient__bg {
+	background: -moz-linear-gradient(
+		90deg,
+		rgba(7, 30, 83, 1) 0%,
+		rgba(0, 15, 53, 1) 100%
+	);
+	/* safari 5.1+,chrome 10+ */
+	background: -webkit-linear-gradient(
+		90deg,
+		rgba(7, 30, 83, 1) 0%,
+		rgba(0, 15, 53, 1) 100%
+	);
+	/* opera 11.10+ */
+	background: -o-linear-gradient(
+		90deg,
+		rgba(7, 30, 83, 1) 0%,
+		rgba(0, 15, 53, 1) 100%
+	);
+	/* global 94%+ browsers support */
+	background: linear-gradient(
+		90deg,
+		rgba(7, 30, 83, 1) 0%,
+		rgba(0, 15, 53, 1) 100%
+	);
+}
+
+.gradient__text {
+	background: var(--gradient-text);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+/* width */
+::-webkit-scrollbar {
+	width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+	border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: rgb(219, 242, 252);
+	border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #8d8d8d;
+}
+
+/* Header Anim */
+@keyframes anim-moveUp {
+	0% {
+		top: 40vh;
+	}
+	25% {
+		top: 40vh;
+	}
+	50% {
+		top: 40vh;
+	}
+	100% {
+		top: 0;
+	}
+}
+
+@keyframes anim-flipX_text1 {
+	0% {
+		opacity: 0;
+		transform: translateX(0%);
+	}
+	50% {
+		opacity: 0;
+		transform: translateX(200px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes anim-flipX_text2 {
+	0% {
+		opacity: 0;
+		transform: translateX(0%);
+	}
+	50% {
+		opacity: 0;
+		transform: translateX(-200px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/*Main anim*/
+@keyframes anim-flipX1 {
+	0% {
+		opacity: 0;
+		transform: translateX(0%);
+	}
+	50% {
+		opacity: 0;
+		transform: translateX(-360px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes anim-main {
+	0% {
+		opacity: 0;
+		transform: translateY(0%);
+	}
+	50% {
+		opacity: 0;
+		transform: translateY(-360px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
