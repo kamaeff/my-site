@@ -32,17 +32,24 @@ const Header = () => (
 		</motion.div>
 
 		<div className='header--title'>
-			<Typewriter
-				onInit={typewriter => {
-					typewriter
-						.typeString('< Kamaeff />')
-						.start()
-						.callFunction(() => {
-							const cursor = document.querySelector('.Typewriter__cursor')
-							cursor.classList.add('Typewriter__cursor-hide')
-						})
-				}}
-			/>
+			<motion.div
+				className='box '
+				whileHover={{ scale: 1.1 }}
+				transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+			>
+				<Typewriter
+					onInit={typewriter => {
+						typewriter
+							.typeString('< Kamaeff />')
+							.start()
+							.callFunction(() => {
+								const cursor = document.querySelector('.Typewriter__cursor')
+								cursor.classList.add('Typewriter__cursor-hide')
+							})
+					}}
+				/>
+			</motion.div>
+
 			<div className='header__container_links'>
 				{icons.map((icon, index) => (
 					<a

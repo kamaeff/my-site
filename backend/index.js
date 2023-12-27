@@ -10,28 +10,32 @@ app.listen(PORT, () => {
 	console.log(`listening on port ${PORT}`)
 })
 
-const connCreate = async () => {
-	try {
-		const connection = await mysql.createConnection({
-			port: process.env.PORT,
-			user: 'gen_user',
-			host: process.env.HOST,
-			database: process.env.DB,
-			password: process.env.PASSWORD,
-		})
+async function connCreate() {
+	return await mysql.createConnection({
+		port: process.env.PORT,
+		user: 'gen_user',
+		host: process.env.HOST,
+		database: process.env.DATABASE,
+		password: process.env.PASSWORD,
+	})
+}
 
-		console.log('Успешное подключение к базе данных')
-		await connection.end()
-		return 'Успешное подключение к базе данных'
+async function fetchData() {
+	try {
+		const connection = await connCreate()
+		const [rows] = await connection.execute(
+			'SELECT COUNT(*) as userCount FROM users'
+		)
+		const { userCount } = rows[0]
+		connection.end()
+		return userCount
 	} catch (error) {
-		console.error('Ошибка подключения к базе данных:', error)
+		console.error('error creating connection' + error)
+		return 0
 	}
 }
 
-app.get('/api', async (req, res) => {
-	res.json({ message: await connCreate() })
-})
-
 app.get('/api/user_stat', async (req, res) => {
-	res.json({ message: 'Stats works' })
+	const result = await fetchData()
+	res.json({ message: result })
 })

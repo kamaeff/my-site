@@ -5,24 +5,24 @@ import './main.css'
 
 const Main = () => {
 	const [messages, setMessages] = useState([])
+	const [count, setCount] = useState(0)
 	const [data, setData] = useState([])
 
 	const fetchData = async () => {
 		const response = await fetch('api/user_stat')
-		const response_1 = await response.json()
-		setData(response_1)
+		setData(await response.json())
 	}
 
 	useEffect(() => {
 		const intervalId = setInterval(
-			() => fetchMessages(setMessages),
+			() => fetchMessages(setMessages, setCount),
 			3600 * 1000
 		)
 
 		fetchData()
 
 		return () => {
-			fetchMessages(setMessages).then(() => clearInterval(intervalId))
+			fetchMessages(setMessages, setCount).then(() => clearInterval(intervalId))
 		}
 	}, [])
 
@@ -72,7 +72,7 @@ const Main = () => {
 							height={32}
 							className='me-2'
 						/>
-						Tg blog
+						{`Tg blog. Subs: ${count}`}
 					</a>
 					<div className='d-grid gap-2 mt-3 main__tg_chat'>
 						{messages.map(message => (
@@ -85,44 +85,17 @@ const Main = () => {
 			</div>
 			<div className='main__stock'>
 				<h3 className='main__stock--title'>Статистика бота</h3>
-				<p className='main__stock--text'>{data.message}</p>
+				<div className='d-flex align-items-center gap-2'>
+					Уникальных пользователей:
+					{data.message === undefined ? (
+						<div className='spinner-border spinner-grow-sm' role='status'>
+							<span className='sr-only'></span>
+						</div>
+					) : (
+						data.message
+					)}
+				</div>
 			</div>
-			{/* <div className='main__projects'>
-				<div className='main__pojects_item'>
-					<img
-						src={tg_bot}
-						alt='Telegram Bot'
-						className='carousel-image'
-						width={1070}
-						height={600}
-					/>
-
-					<h3>
-						<a href='https://t.me/stockhub12bot'>StockHubBot</a>
-					</h3>
-					<p>
-						Телеграм бот на NodeJs предоставляющий услугу по заказу и доставке
-						выбранной пары
-					</p>
-				</div>
-				<div className='main__pojects_item'>
-					<img
-						src={searchHub}
-						alt='Telegram Bot'
-						className='carousel-image'
-						width={1070}
-						height={600}
-					/>
-
-					<h3>
-						<a href='https://t.me/yokross_bot'>SearchHubBot</a>
-					</h3>
-					<p>
-						Телеграм бот на Python, который парсит маркетплейсы с обувью и
-						выводит информацию по предпочтениям пользователя
-					</p>
-				</div>
-			</div> */}
 		</div>
 	)
 }
