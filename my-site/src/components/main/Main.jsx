@@ -1,16 +1,33 @@
+import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
 import fetchMessages from './components/FetchTg'
 import { tg } from './components/imgImports'
 import './main.css'
 
+import spinner from '../../assets/img/Loading.svg'
+import { stocklogo } from './components/imgImports'
+
 const Main = () => {
 	const [messages, setMessages] = useState([])
-	const [count, setCount] = useState(0)
+	const [count, setCount] = useState([])
 	const [data, setData] = useState([])
+
+	const [isStatsVisible, setStatsVisible] = useState({
+		stock1: false,
+		stock2: false,
+	})
+
+	const handleTitleClick = stockName => {
+		setStatsVisible(prev => ({
+			...prev,
+			[stockName]: !prev[stockName],
+		}))
+	}
 
 	const fetchData = async () => {
 		const response = await fetch('api/user_stat')
-		setData(await response.json())
+		const data = await response.json()
+		setData(data)
 	}
 
 	useEffect(() => {
@@ -28,7 +45,7 @@ const Main = () => {
 
 	return (
 		<div className='main'>
-			<div className='main__container'>
+			<section className='main__container'>
 				<div className='main__text'>
 					<p>
 						Привет! Меня зовут{' '}
@@ -61,7 +78,6 @@ const Main = () => {
 						Активно изучаю Python и JavaScript. Для практики пишу телеграм
 						ботов, чтобы понять как работать с бекэндом.
 					</p>{' '}
-					<p>Данный сайт тоже можно назвать большим проектом (:</p>{' '}
 				</div>
 				<div className='main__tg'>
 					<a href='https://t.me/kamaev_log' className='main__tg--title'>
@@ -82,20 +98,76 @@ const Main = () => {
 						))}
 					</div>
 				</div>
-			</div>
-			<div className='main__stock'>
-				<h3 className='main__stock--title'>Статистика бота</h3>
-				<div className='d-flex align-items-center gap-2'>
-					Уникальных пользователей:
-					{data.message === undefined ? (
-						<div className='spinner-border spinner-grow-sm' role='status'>
-							<span className='sr-only'></span>
+			</section>
+			<section className='main__projects'>
+				<h2 id='projects' className='main__projects--title'>
+					Projects
+				</h2>
+				<div className='main__stock'>
+					<motion.div
+						className='box '
+						whileHover={{ scale: 1.05 }}
+						transition={{ type: 'spring' }}
+						onClick={() => handleTitleClick('stock1')}
+					>
+						<img
+							src={stocklogo}
+							alt='stocklogo'
+							width={250}
+							height={250}
+							className='main__stock--logo'
+						/>
+					</motion.div>
+
+					<div
+						className={`stats-container ${
+							isStatsVisible.stock1 ? 'stats-visible' : ''
+						}`}
+					>
+						<h5 className='main__stock--title pt-2'>StockHubBot</h5>
+						<div className='main__stock--text '>
+							<p>
+								{' '}
+								Бот предоставляет услугу по поиску и заказа пары с{' '}
+								<span className='itallic'>Poizon.</span>
+								<br />
+								<span className='itallic'>Use: JS, php</span>
+							</p>
 						</div>
-					) : (
-						data.message
-					)}
+						<div className='main__stock_stats'>
+							<h5 className='main__stock_stats--title'>Bot stats:</h5>
+							<div className='main__stock_stats--item'>
+								<span className='itallic text-dark'>Users: </span>
+								{data.message && data.message.userCount !== undefined ? (
+									data.message.userCount
+								) : (
+									<img
+										src={spinner}
+										alt='loading'
+										className='rotate'
+										width={20}
+										height={20}
+									/>
+								)}
+							</div>
+							<div className='main__stock_stats--item'>
+								<span className='itallic text-dark'>Orders: </span>
+								{data.message && data.message.ordersCount !== undefined ? (
+									data.message.ordersCount
+								) : (
+									<img
+										src={spinner}
+										alt='loading'
+										className='rotate'
+										width={20}
+										height={20}
+									/>
+								)}
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
+			</section>
 		</div>
 	)
 }

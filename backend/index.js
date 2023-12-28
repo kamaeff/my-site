@@ -23,12 +23,17 @@ async function connCreate() {
 async function fetchData() {
 	try {
 		const connection = await connCreate()
-		const [rows] = await connection.execute(
+		const [users] = await connection.execute(
 			'SELECT COUNT(*) as userCount FROM users'
 		)
-		const { userCount } = rows[0]
+		const [orders] = await connection.execute(
+			'SELECT COUNT(*) as ordersCount FROM orders'
+		)
+
+		const { userCount } = users[0]
+		const { ordersCount } = orders[0]
 		connection.end()
-		return userCount
+		return { userCount, ordersCount }
 	} catch (error) {
 		console.error('error creating connection' + error)
 		return 0

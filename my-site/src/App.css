@@ -23,6 +23,24 @@ a {
 	visibility: hidden !important;
 }
 
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.rotate {
+	animation: rotate 2s linear infinite;
+}
+
+.itallic {
+	color: #6c6c6c;
+	font-style: italic;
+}
+
 .gradient__bg {
 	background: -moz-linear-gradient(
 		90deg,

@@ -19,6 +19,10 @@ const icons = [
 	{ src: git, alt: 'git', href: 'https://github.com/kamaeff?tab=repositories' },
 ]
 
+const scrollToTop = () => {
+	window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
 const Header = () => (
 	<div className='header'>
 		<motion.div
@@ -36,6 +40,8 @@ const Header = () => (
 				className='box '
 				whileHover={{ scale: 1.1 }}
 				transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+				id='main'
+				onClick={scrollToTop}
 			>
 				<Typewriter
 					onInit={typewriter => {

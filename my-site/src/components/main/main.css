@@ -44,11 +44,11 @@
 .main__tg--title {
 	padding: 3px;
 
-	font-family: var(--roboto);
+	font-family: var(--font-logo);
 	font-weight: 600;
 	font-size: 22px;
 
-	background: #fff;
+	background: var(--color-bg);
 	border-radius: 20px;
 }
 
@@ -75,6 +75,59 @@
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 15px;
 	border-bottom-left-radius: 5px;
+}
+
+.main__projects--title {
+	margin-bottom: 40px;
+
+	font-family: var(--font-logo);
+	font-weight: 600;
+	font-size: 30px;
+	text-align: center;
+}
+
+.main__stock {
+	width: 250px;
+	border-radius: 20px;
+	text-align: justify;
+}
+
+.main__stock--title {
+	font-family: var(--roboto);
+	font-size: 22px;
+}
+
+.main__stock--logo {
+	cursor: pointer;
+	border-radius: 20px;
+	box-shadow: 1px 2px 2px rgb(0, 0, 0, 0.5);
+}
+
+.stats-container {
+	max-height: 0;
+	padding: 0 10px;
+	overflow: hidden;
+	opacity: 0;
+	align-items: center;
+	transition: max-height 2s ease, opacity 1s ease;
+}
+
+.stats-visible {
+	max-height: 700px;
+	opacity: 1;
+}
+
+.main__stock_stats--title {
+	font-family: var(--roboto);
+
+	color: #000;
+}
+
+.main__stock_stats--item,
+.main__stock--text {
+	font-family: var(--roboto);
+	font-size: 15px;
+	color: #000;
 }
 
 @media screen and (max-width: 992px) {
@@ -118,5 +171,11 @@
 	.main__text,
 	.main__tg {
 		animation: 6s anim-adaptiv-main ease;
+	}
+
+	.main__projects {
+		display: grid;
+		justify-content: center;
+		align-items: center;
 	}
 }

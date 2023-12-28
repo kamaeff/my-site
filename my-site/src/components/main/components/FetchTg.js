@@ -12,8 +12,6 @@ const fetchMessages = async (setMessages, setCount) => {
 		const data = await response.json()
 		const data_members = await count_members.json()
 
-		console.log(data_members.result)
-
 		const channelPostUpdates = data.result.filter(
 			update => update.channel_post.text
 		)
