@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+
 import React, { useEffect, useState } from 'react'
 import fetchMessages from './components/FetchTg'
 import { tg } from './components/imgImports'
@@ -15,6 +16,7 @@ const Main = () => {
 	const [isStatsVisible, setStatsVisible] = useState({
 		stock1: false,
 		stock2: false,
+		stock3: false,
 	})
 
 	const handleTitleClick = stockName => {
@@ -46,7 +48,7 @@ const Main = () => {
 	return (
 		<div className='main'>
 			<section className='main__container'>
-				<div className='main__text'>
+				<div className='main__text' id='main__text'>
 					<p>
 						Привет! Меня зовут{' '}
 						<a
@@ -90,24 +92,34 @@ const Main = () => {
 						/>
 						{`Tg blog. Subs: ${count}`}
 					</a>
-					<div className='d-grid gap-2 mt-3 main__tg_chat'>
-						{messages.map(message => (
-							<div key={message.id} className=''>
-								<span className='main__tg-text_chat'>{message.text}</span>
-							</div>
-						))}
-					</div>
+					{messages.length !== 0 ? (
+						<div className='d-grid gap-2 mt-3 main__tg_chat'>
+							{messages.map(message => (
+								<div key={message.id} className=''>
+									<span className='main__tg-text_chat'>{message.text}</span>
+								</div>
+							))}
+						</div>
+					) : (
+						<div className='mt-4 main__tg_loading'>
+							<img
+								src={spinner}
+								alt='loading'
+								className='rotate '
+								width={32}
+								height={32}
+							/>{' '}
+							<span className='main__tg_loading--text'>Loading</span>
+						</div>
+					)}
 				</div>
 			</section>
 			<section className='main__projects'>
-				<h2 id='projects' className='main__projects--title'>
-					Projects
-				</h2>
 				<div className='main__stock'>
 					<motion.div
 						className='box '
 						whileHover={{ scale: 1.05 }}
-						transition={{ type: 'spring' }}
+						transition={{ type: 'spring', stiffness: 400, damping: 10 }}
 						onClick={() => handleTitleClick('stock1')}
 					>
 						<img

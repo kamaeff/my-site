@@ -22,6 +22,7 @@ const fetchMessages = async (setMessages, setCount) => {
 				text: update.channel_post.text || 'Привет',
 			}
 		})
+		// console.log(channelMessages)
 
 		setCount(data_members.result)
 		setMessages(channelMessages)

@@ -76,7 +76,7 @@ const Header = () => (
 			transition={{ type: 'spring', stiffness: 400, damping: 10 }}
 		>
 			<a id='#contacts' className='header__rightside' href='#contacts'>
-				Contacts
+				GitHub
 			</a>
 		</motion.div>
 	</div>
