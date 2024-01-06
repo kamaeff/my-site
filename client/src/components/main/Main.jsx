@@ -52,8 +52,10 @@ const Main = () => {
 					<p>
 						Привет! Меня зовут{' '}
 						<a
-							href='#link'
+							href='https://t.me/kamaev_log'
+							target='_blank'
 							className='main__text--italic text-black fw-bold p-0 '
+							rel='noreferrer'
 						>
 							Камаев Антон
 						</a>
