@@ -114,6 +114,9 @@ const Main = () => {
 					)}
 				</div>
 			</section>
+
+			<h2 className='main__projects--title'>Projects</h2>
+
 			<section className='main__projects'>
 				<div className='main__stock'>
 					<motion.div
