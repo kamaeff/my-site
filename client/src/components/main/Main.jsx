@@ -73,7 +73,7 @@ const Main = () => {
 						использовал как дипломну работу, он включает большие модули
 						<span className='main__text--italic'>
 							{' '}
-							(подключение базы данных, подключение оплаты).
+							(подключение базы данных и оплаты).
 						</span>{' '}
 					</p>{' '}
 					<p>
@@ -141,9 +141,31 @@ const Main = () => {
 							<p>
 								{' '}
 								Бот предоставляет услугу по поиску и заказа пары с{' '}
-								<span className='itallic'>Poizon.</span>
+								<span className='itallic '>Poizon.</span>
 								<br />
-								<span className='itallic'>Use: JS, php</span>
+								<br />В данном проекте я изучал работу тг ботов и настолько
+								"заигрался", что у меня получился реальный продукт, который
+								содержит в себе большой функционал{' '}
+								<span className='itallic'>
+									(mysql и платежная система Монета.ру)
+								</span>
+								<br />
+								<br />
+								<span>
+									<span className='itallic text-dark'>GitHub</span> {'-->'}{' '}
+									<a
+										href='https://github.com/kamaeff/tg-bot-js-yokross.v3'
+										target='_blank'
+										className='text-primary itallic border-bottom border-primary'
+										rel='noreferrer'
+									>
+										StockHubBot.v3
+									</a>
+								</span>
+								<br />
+								<span className='itallic text-dark'>
+									Use: <span className='itallic'>JS, php</span>
+								</span>
 							</p>
 						</div>
 						<div className='main__stock_stats'>

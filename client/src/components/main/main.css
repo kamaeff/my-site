@@ -113,6 +113,7 @@
 .main__stock--title {
 	font-family: var(--roboto);
 	font-size: 22px;
+	font-weight: 600;
 }
 
 .main__stock--logo {
@@ -131,7 +132,7 @@
 }
 
 .stats-visible {
-	height: 300px;
+	height: 500px;
 	opacity: 1;
 }
 
@@ -145,6 +146,7 @@
 .main__stock--text {
 	font-family: var(--roboto);
 	font-size: 15px;
+	line-height: 18px;
 	color: #000;
 }
 
