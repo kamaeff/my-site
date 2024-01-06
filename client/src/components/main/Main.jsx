@@ -119,7 +119,7 @@ const Main = () => {
 
 			<h2 className='main__projects--title'>Projects</h2>
 
-			<section className='main__projects'>
+			<section className='main__projects' id='projects'>
 				<div className='main__stock'>
 					<motion.div
 						className='box '

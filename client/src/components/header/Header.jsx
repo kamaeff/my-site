@@ -75,7 +75,13 @@ const Header = () => (
 			whileHover={{ scale: 1.1 }}
 			transition={{ type: 'spring', stiffness: 400, damping: 10 }}
 		>
-			<a id='#contacts' className='header__rightside' href='#contacts'>
+			<a
+				id='#contacts'
+				className='header__rightside'
+				href={icons[3].href}
+				target='_blank'
+				rel='noreferrer'
+			>
 				GitHub
 			</a>
 		</motion.div>
