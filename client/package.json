@@ -21,7 +21,7 @@
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
-		"start": "react-scripts start",
+		"start": "react-scripts start --allowedHosts=localhost",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
@@ -51,6 +51,5 @@
 		"react-refresh-webpack-plugin": "^0.1.0",
 		"source-map-loader": "^4.0.1",
 		"style-loader": "^3.3.3"
-	},
-	"proxy": "http://localhost:3001"
+	}
 }

@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"scripts": {
 		"server": "node backend/server.js",
-		"client": "cd client && yarn start",
+		"client": "cd client && npm start",
 		"dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
 	},
 	"keywords": [],

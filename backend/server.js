@@ -42,5 +42,6 @@ async function fetchData() {
 
 app.get('/api/user_stat', async (req, res) => {
 	const result = await fetchData()
+
 	res.json({ message: result })
 })
