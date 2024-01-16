@@ -6,7 +6,7 @@ import { tg } from './components/imgImports'
 import './main.css'
 
 import spinner from '../../assets/img/Loading.svg'
-import { stocklogo } from './components/imgImports'
+import { mysite, stocklogo, yokross } from './components/imgImports'
 
 const Main = () => {
 	const [messages, setMessages] = useState([])
@@ -14,9 +14,9 @@ const Main = () => {
 	const [data, setData] = useState([])
 
 	const [isStatsVisible, setStatsVisible] = useState({
-		stock1: false,
-		stock2: false,
-		stock3: false,
+		pro_container1: false,
+		pro_container2: false,
+		pro_container3: false,
 	})
 
 	const handleTitleClick = stockName => {
@@ -108,8 +108,8 @@ const Main = () => {
 								src={spinner}
 								alt='loading'
 								className='rotate '
-								width={32}
-								height={32}
+								width={30}
+								height={30}
 							/>{' '}
 							<span className='main__tg_loading--text'>Loading</span>
 						</div>
@@ -117,7 +117,7 @@ const Main = () => {
 				</div>
 			</section>
 
-			<h2 className='main__projects--title'>Projects</h2>
+			<h2 className='main__projects--title'>My Projects</h2>
 
 			<section className='main__projects' id='projects'>
 				<div className='main__stock'>
@@ -125,7 +125,7 @@ const Main = () => {
 						className='box '
 						whileHover={{ scale: 1.05 }}
 						transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-						onClick={() => handleTitleClick('stock1')}
+						onClick={() => handleTitleClick('pro_container1')}
 					>
 						<img
 							src={stocklogo}
@@ -138,7 +138,7 @@ const Main = () => {
 
 					<div
 						className={`stats-container ${
-							isStatsVisible.stock1 ? 'stats-visible' : ''
+							isStatsVisible.pro_container1 ? 'stats-visible' : ''
 						}`}
 					>
 						<h5 className='main__stock--title pt-2'>StockHubBot</h5>
@@ -203,6 +203,113 @@ const Main = () => {
 									/>
 								)}
 							</div>
+						</div>
+					</div>
+				</div>
+
+				<div className='main__stock'>
+					<motion.div
+						className='box '
+						whileHover={{ scale: 1.05 }}
+						transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+						onClick={() => handleTitleClick('pro_container2')}
+					>
+						<img
+							src={yokross}
+							alt='yokross'
+							width={250}
+							height={250}
+							className='main__stock--logo'
+						/>
+					</motion.div>
+
+					<div
+						className={`stats-container ${
+							isStatsVisible.pro_container2
+								? 'stats-visible pro_container2'
+								: ''
+						}`}
+					>
+						<h5 className='main__stock--title pt-2'>YokrossBot</h5>
+						<div className='main__stock--text '>
+							<p>
+								{' '}
+								Бот предоставляет услугу по поиску пары с крупных маркетплейсов
+								обуви России.
+								<br />
+								<br />
+								Данный проект находится в разработке. <br />
+								<br />
+								<span>
+									<span className='itallic text-dark'>GitHub</span> {'-->'}{' '}
+									<a
+										href='https://github.com/kamaeff/searchbottg'
+										target='_blank'
+										className='text-primary itallic border-bottom border-primary'
+										rel='noreferrer'
+									>
+										YokrossBot
+									</a>
+								</span>
+								<br />
+								<span className='itallic text-dark'>
+									Use: <span className='itallic'>JS</span>
+								</span>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div className='main__stock'>
+					<motion.div
+						className='box '
+						whileHover={{ scale: 1.05 }}
+						transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+						onClick={() => handleTitleClick('pro_container3')}
+					>
+						<img
+							src={mysite}
+							alt='yokross'
+							width={250}
+							height={250}
+							className='main__stock--logo'
+						/>
+					</motion.div>
+
+					<div
+						className={`stats-container ${
+							isStatsVisible.pro_container3
+								? 'stats-visible pro_container3'
+								: ''
+						}`}
+					>
+						<h5 className='main__stock--title pt-2'>Kamaeff Site</h5>
+						<div className='main__stock--text '>
+							<p>
+								{' '}
+								Данный проект создан для изучения ReactJs.
+								<br />
+								<br />
+								Я всегда пытаюсь изучать что-то новое. Для меня текущий сайт
+								один из самых интересных проектов, потому что я всегда хотел
+								изучить React. <br />
+								<br />
+								<span>
+									<span className='itallic text-dark'>GitHub</span> {'-->'}{' '}
+									<a
+										href='https://github.com/kamaeff/my-site'
+										target='_blank'
+										className='text-primary itallic border-bottom border-primary'
+										rel='noreferrer'
+									>
+										KamaeffSite
+									</a>
+								</span>
+								<br />
+								<span className='itallic text-dark'>
+									Use: <span className='itallic'>JS</span>
+								</span>
+							</p>
 						</div>
 					</div>
 				</div>

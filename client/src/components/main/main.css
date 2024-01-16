@@ -91,7 +91,7 @@
 
 .main__projects {
 	display: flex;
-	justify-content: space-between;
+	gap: 30px;
 }
 
 .main__projects--title {
@@ -128,8 +128,16 @@
 }
 
 .stats-visible {
-	height: 400px;
+	height: 370px;
 	opacity: 1;
+}
+
+.pro_container2 {
+	height: 200px;
+}
+
+.pro_container3 {
+	height: 250px;
 }
 
 .main__stock_stats--title {
