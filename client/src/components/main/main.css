@@ -98,6 +98,7 @@
 	font-family: var(--font-logo);
 	font-weight: 600;
 	font-size: 30px;
+	margin: -20px 0;
 }
 
 .main__stock {
