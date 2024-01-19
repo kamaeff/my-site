@@ -97,8 +97,11 @@ const Main = () => {
 					{messages.length !== 0 ? (
 						<div className='d-grid gap-2 mt-3 main__tg_chat'>
 							{messages.map(message => (
-								<div key={message.id} className=''>
-									<span className='main__tg-text_chat'>{message.text}</span>
+								<div key={message.id}>
+									<p className='main__tg_chat--date'>
+										{message.date.toLocaleString()}
+									</p>
+									<span className='main__tg_chat--message'>{message.text}</span>
 								</div>
 							))}
 						</div>
@@ -165,6 +168,19 @@ const Main = () => {
 										rel='noreferrer'
 									>
 										StockHubBot.v3
+									</a>
+								</span>
+								<br />
+								<span>
+									<span className='itallic text-dark'>Tg </span>
+									{'-->'}{' '}
+									<a
+										href='https://t.me/stockhub12bot'
+										target='_blank'
+										className='text-primary itallic border-bottom border-primary'
+										rel='noreferrer'
+									>
+										@stockhub12bot
 									</a>
 								</span>
 								<br />

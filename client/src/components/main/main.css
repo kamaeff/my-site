@@ -73,21 +73,32 @@
 }
 
 .main__tg_chat {
+	height: 300px;
 	overflow: auto;
 }
 
-.main__tg-text_chat {
+.main__tg_chat--message,
+.main__tg_chat--date {
 	padding: 2px 13px;
 
 	font-family: var(--roboto);
+	line-height: 30px;
 	color: #000;
 	background: rgb(184, 230, 255, 0.9);
 
-	border: 1px solid rgb(184, 230, 255);
+	border: 1px solid rgb(255, 255, 255);
 	border-top-left-radius: 15px;
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 15px;
 	border-bottom-left-radius: 5px;
+}
+
+.main__tg_chat--date {
+	width: 100px;
+	text-align: center;
+
+	color: #fff;
+	background: rgba(125, 199, 238, 0.9);
 }
 
 .main__projects {
@@ -130,7 +141,7 @@
 }
 
 .stats-visible {
-	height: 400px;
+	height: 420px;
 	opacity: 1;
 }
 
