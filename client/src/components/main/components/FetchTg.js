@@ -9,6 +9,7 @@ const fetchMessages = async (setMessages, setCount) => {
 		const count_members = await fetch(
 			`https://api.telegram.org/bot${botToken}/getChatMembersCount?chat_id=${channelId}`
 		)
+
 		const data = await response.json()
 		const data_members = await count_members.json()
 
@@ -19,10 +20,9 @@ const fetchMessages = async (setMessages, setCount) => {
 		const channelMessages = channelPostUpdates.map(update => {
 			return {
 				id: update.channel_post.message_id,
-				text: update.channel_post.text || 'Привет',
+				text: update.channel_post.text,
 			}
 		})
-		// console.log(channelMessages)
 
 		setCount(data_members.result)
 		setMessages(channelMessages)

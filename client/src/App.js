@@ -5,7 +5,7 @@ import { Footer, Header, Main } from './components'
 
 function App() {
 	return (
-		<div>
+		<div className='wrapper'>
 			<Header />
 			<Main />
 			<Footer />

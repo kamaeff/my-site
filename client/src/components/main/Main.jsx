@@ -2,11 +2,11 @@ import { motion } from 'framer-motion'
 
 import React, { useEffect, useState } from 'react'
 import fetchMessages from './components/FetchTg'
-import { tg } from './components/imgImports'
+
 import './main.css'
 
 import spinner from '../../assets/img/Loading.svg'
-import { mysite, stocklogo, yokross } from './components/imgImports'
+import { mysite, stocklogo, tg, yokross } from './components/imgImports'
 
 const Main = () => {
 	const [messages, setMessages] = useState([])
