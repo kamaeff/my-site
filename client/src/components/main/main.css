@@ -214,11 +214,12 @@
 		justify-content: center;
 		align-items: center;
 
+		margin-top: -20px;
 		gap: 15px;
 	}
 
 	.main__projects--title {
 		text-align: center;
-		margin: 10px 0;
+		margin: 70px 0;
 	}
 }
