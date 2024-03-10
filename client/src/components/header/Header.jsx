@@ -34,10 +34,6 @@ const Header = () => (
 						typewriter
 							.typeString('< Kamaeff />')
 							.start()
-							.callFunction(() => {
-								const cursor = document.querySelector('.Typewriter__cursor')
-								cursor.classList.add('Typewriter__cursor-hide')
-							})
 					}}
 				/>
 			</motion.div>

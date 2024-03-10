@@ -23,14 +23,18 @@ const Main = () => {
     }));
   };
 
-  const fetchMessagesData = async () => {
-    const response = await fetch("api/users_tg");
-    const data_tg = await response.json();
-    const numberOfMembers = data_tg.members.result;
-    setData_tg(numberOfMembers);
-    const messages = data_tg.messages;
-    setMessages(messages);
-  };
+const fetchMessagesData = async () => {
+      try {
+        const response = await fetch("api/users_tg");
+        const data_tg = await response.json();
+        const numberOfMembers = data_tg.members.result;
+      setData_tg(numberOfMembers)
+        const messages = data_tg.messages;
+        setMessages(messages);
+      } catch (error) {
+        console.error("Error fetching messages:", error);
+      }
+    };
   useEffect(() => {
     fetchMessagesData();
   }, []);
@@ -87,11 +91,8 @@ const Main = () => {
           {messages.length !== 0 ? (
             <div className="d-grid gap-2 mt-3 main__tg_chat">
               {messages.map((message) => (
-                <div key={message}>
-                  <p className="main__tg_chat--date">
-                    {message.date.toLocaleString()}
-                  </p>
-                  <span className="main__tg_chat--message">{message}</span>
+                <div key={message.id}>
+                  <span className="main__tg_chat--message">{message.text}</span>
                 </div>
               ))}
             </div>
