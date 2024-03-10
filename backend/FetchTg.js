@@ -4,10 +4,10 @@ const fetchMessages = async () => {
     const channelId = "-1001963687312";
 
     const response = await fetch(
-      `https://api.telegram.org/bot${botToken}/getUpdates?chat_id=${channelId}`
+      `https://api.telegram.org/bot${botToken}/getUpdates?chat_id=${channelId}`,
     );
     const count_members = await fetch(
-      `https://api.telegram.org/bot${botToken}/getChatMembersCount?chat_id=${channelId}`
+      `https://api.telegram.org/bot${botToken}/getChatMembersCount?chat_id=${channelId}`,
     );
 
     const data = await response.json();
@@ -16,7 +16,7 @@ const fetchMessages = async () => {
     let channelMessages = [];
     if (data && data.result) {
       const channelPostUpdates = data.result.filter(
-        (update) => update.channel_post && update.channel_post.text
+        (update) => update.channel_post && update.channel_post.text,
       );
       channelMessages = channelPostUpdates.map((update) => {
         const timestampInSeconds = update.channel_post.date;

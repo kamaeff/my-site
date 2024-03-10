@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
-
 import React, { useEffect, useState } from "react";
 
 import "./main.css";
-
 import spinner from "../../assets/img/Loading.svg";
 import { mysite, stocklogo, tg, yokross } from "./components/imgImports";
 
@@ -25,12 +23,6 @@ const Main = () => {
     }));
   };
 
-  const fetchData = async () => {
-    const response = await fetch("api/user_stat");
-    const data = await response.json();
-    setData(data);
-  };
-
   const fetchMessagesData = async () => {
     const response = await fetch("api/users_tg");
     const data_tg = await response.json();
@@ -40,7 +32,6 @@ const Main = () => {
     setMessages(messages);
   };
   useEffect(() => {
-    fetchData();
     fetchMessagesData();
   }, []);
 
@@ -188,37 +179,37 @@ const Main = () => {
                 </span>
               </p>
             </div>
-            <div className="main__stock_stats">
-              <h5 className="main__stock_stats--title">Bot stats:</h5>
-              <div className="main__stock_stats--item">
-                <span className="itallic text-dark">Users: </span>
-                {data.message && data.message.userCount !== undefined ? (
-                  data.message.userCount
-                ) : (
-                  <img
-                    src={spinner}
-                    alt="loading"
-                    className="rotate"
-                    width={20}
-                    height={20}
-                  />
-                )}
-              </div>
-              <div className="main__stock_stats--item">
-                <span className="itallic text-dark">Orders: </span>
-                {data.message && data.message.ordersCount !== undefined ? (
-                  data.message.ordersCount
-                ) : (
-                  <img
-                    src={spinner}
-                    alt="loading"
-                    className="rotate"
-                    width={20}
-                    height={20}
-                  />
-                )}
-              </div>
-            </div>
+            {/* <div className="main__stock_stats"> */}
+            {/*   <h5 className="main__stock_stats--title">Bot stats:</h5> */}
+            {/*   <div className="main__stock_stats--item"> */}
+            {/*     <span className="itallic text-dark">Users: </span> */}
+            {/*     {data.message && data.message.userCount !== undefined ? ( */}
+            {/*       data.message.userCount */}
+            {/*     ) : ( */}
+            {/*       <img */}
+            {/*         src={spinner} */}
+            {/*         alt="loading" */}
+            {/*         className="rotate" */}
+            {/*         width={20} */}
+            {/*         height={20} */}
+            {/*       /> */}
+            {/*     )} */}
+            {/*   </div> */}
+            {/*   <div className="main__stock_stats--item"> */}
+            {/*     <span className="itallic text-dark">Orders: </span> */}
+            {/*     {data.message && data.message.ordersCount !== undefined ? ( */}
+            {/*       data.message.ordersCount */}
+            {/*     ) : ( */}
+            {/*       <img */}
+            {/*         src={spinner} */}
+            {/*         alt="loading" */}
+            {/*         className="rotate" */}
+            {/*         width={20} */}
+            {/*         height={20} */}
+            {/*       /> */}
+            {/*     )} */}
+            {/*   </div> */}
+            {/* </div> */}
           </div>
         </div>
 
