@@ -406,6 +406,11 @@ lru-cache@^8.0.0:
   resolved "https://registry.npmjs.org/lru-cache/-/lru-cache-8.0.5.tgz"
   integrity sha512-MhWWlVnuab1RG5/zMRRcVGXZLCXrZTgfwMikgzCegsPnG62yDQo5JnqKkrK4jO5iKqDAZGItAqN5CtKBCBWRUA==
 
+lucide-static@^0.356.0:
+  version "0.356.0"
+  resolved "https://registry.yarnpkg.com/lucide-static/-/lucide-static-0.356.0.tgz#49550ee2b9452d1b1f1eda0a9f2a6d2d9bbff502"
+  integrity sha512-OurfjapxhP0ic6qSmYNOWrRH9qgx3U+RIGcuTYJ0qOHpwUBG+URmhNve4oyvqxMW0YzNAlNEmdN6KeEUa3l5WA==
+
 media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.npmjs.org/media-typer/-/media-typer-0.3.0.tgz"
